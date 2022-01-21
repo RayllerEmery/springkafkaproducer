@@ -7,16 +7,15 @@ import javax.persistence.Id
 import javax.persistence.ManyToOne
 
 @Entity
-class Book (
-
-    val name: String,
-    @ManyToOne
-    val people: People
-
-        ){
-
+class Book {
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
-    private lateinit var id: String
+    val id: String? = ""
+
+    var name: String? = null
+
+    constructor()
+
+    constructor(name: String) { this.name = name}
 }
